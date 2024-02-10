@@ -1,0 +1,386 @@
+
+/* --------------------------------------------------------- */
+/* @@@@@@@@@@ GOOGLE FONTS @@@@@@@@@@ */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+
+/* @@@@@@@@@@ VARIABLE CSS @@@@@@@@@@ */
+:root{
+    --header-height: 3.5rem;
+
+/* ====== Colors ====== */
+    --first-color: #222831;
+    --secondary-color: #393E46;
+    --third-color: #00ADB5;
+    --support-color: #EEEEEE;
+    --shadow-color: #a0a3a7;
+
+/* ====== Font and typography ====== */
+    /* font size - 1rem = 16px */
+    --body-font: 'Rubik', sans-serif;
+    --main-font: 2rem;
+    --h1-f-size: 1.5rem;
+    --h2-f-size: 1.25rem;
+    --h3-f-size: 1rem;
+    --normal-f-size: .938rem;
+    --small-f-size: .813rem;
+    --smaller-f-size: .75rem;
+    --icon-size: 1.4rem;
+    
+    /* font weight */
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-bold: 600;
+
+    /* z index */
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+}
+
+
+/* @@@@@@@@@@ R W D - Typography @@@@@@@@@@ */
+@media screen and (min-width: 1150px){
+    :root{
+    --main-font: 4.5rem;
+    --h1-f-size: 2.25rem;
+    --h2-f-size: 1.5rem;
+    --h3-f-size: 1.25rem;
+    --normal-f-size: 1.125rem;
+    --small-f-size: .875rem;
+    --smaller-f-size: .813rem;
+    }
+}
+/*-----------------------------------------------------------------*/
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@ B A S E @@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/*---------------------------------------------------------------*/
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    letter-spacing: .075rem;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body,
+input,
+textarea,
+button{
+    font-family: var(--body-font);
+    font-size: var(--normal-f-size);
+}
+
+body{
+    background-color: var(--support-color);
+    color: var(--first-color);
+    transition: background-color .4s;
+}
+
+input,
+button,
+textarea{
+    border: none;
+    outline: none;
+}
+
+h1, h2, h3, h4{
+    color: var(--secondary-color);
+    font-weight: var(--font-bold);
+}
+
+ul{
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ====== THEME ====== */
+
+/* ====== DARK THEME ====== */ 
+
+
+/*------------------------------------------------------------------------------*/
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@ REUSABLE CSS CLASSES @@@@@@@@@@@@@@@@@@@@@@@@@@  */
+/*----------------------------------------------------------------------------*/
+.container{
+    max-width: 1120px;
+    margin-inline: 1.5rem;
+}
+
+.grid{
+    display: grid;
+    gap: 1.5rem;
+}
+
+.section{
+    padding-block: 5rem 1rem;
+}
+
+.section__title{
+    font-size: var(--h1-f-size);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.profil{
+   width: 250px;
+   height: 250px;
+   background-color: var(--support-color);
+   border: 8px solid var(--support-color);   
+   display: grid;
+   place-items: center;
+   transition: background-color .4s; 
+}
+
+.profil__content{
+    width: 180px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.main{
+    overflow: hidden;
+}
+
+
+/* @@@@@@@@@@ HEADER & NAV @@@@@@@@@@ */
+.header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: var(--z-fixed);
+    transition: background-color .4s, box-shadow .4s;
+}
+
+.nav{
+    position: relative;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo{
+    color: var(--support-color);
+    font-weight: var(--font-medium);
+    transition: color .4s;
+}
+
+.nav__toggle,
+.nav__close{
+    display: inline-flex;
+    font-size: var(--icon-size);
+    cursor: pointer;
+}
+
+.nav__toggle{
+    color: var(--support-color);
+    transition: color .4s;
+}
+
+.nav__close{
+    color: var(--third-color);
+}
+
+/* ====== Navigation for mobile devices ====== */
+@media screen and (max-width: 1150px){
+    .nav__menu{
+        position: fixed;
+        top: -100%;
+        left: 0;
+        background-color: var(--support-color);
+        width: 100%;
+        box-shadow: 0 4px 16px var(--shadow-color);
+        padding-block: 5rem 4rem;
+        transition: top .4s;
+    }
+}
+
+.nav__list{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+    text-align: center;
+}
+
+.nav__link{
+    color: var(--first-color);
+    font-weight: var(--font-medium);
+    transition: color .4s;
+}
+
+.nav__link:hover{
+    color: var(--third-color);
+}
+
+.nav__close{
+    position: absolute;
+    top: 1.15rem;
+    right: 1.15rem;
+    font-size: var(--icon-size);
+}
+
+/* ====== Show menu ====== */
+.show-menu{
+    top: 0;
+}
+
+/* ====== Change background header ====== */
+.bg-header{
+    background-color: var(--support-color);
+    box-shadow: 1px 1px 4px var(--first-color);
+}
+
+.bg-header :is(.nav__logo, .nav__toggle){
+    color: var(--first-color);
+}
+
+
+
+/* ====== Header background of other pages ====== */
+.header-pages{
+    background-color: var(--support-color);    
+}
+
+.header-pages :is(.nav__logo, .nav__toggle){
+    color: var(--first-color)
+}
+
+/* @@@@@@@@@@ BTN @@@@@@@@@@ */
+.button{
+   display: inline-flex;
+   justify-content: center;
+   background-color: var(--secondary-color);
+   color: var(--support-color);
+   font-weight: var(--font-bold);
+   padding: 1rem 2rem;
+   transition: background-color .4s, box-shadow .4s;
+   border-radius: .5rem 1rem;    
+}
+
+.button:hover{
+    background-color: var(--third-color);
+    color: var(--first-color);
+    box-shadow: 1px 4px 8px var(--shadow-color);
+    font-weight: var(--font-bold);
+}
+
+.button:active{
+    transition: .4s;
+    transform: scale(.9);
+}
+
+
+/* @@@@@@@@@@ HOME @@@@@@@@@@ */
+.home{
+    position: relative;
+    border-bottom: 8px solid var(--first-color);
+}
+
+.home__rectangle{
+    width: 100%;
+    height: 220px;
+    background-color: var(--first-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.home__container{
+    padding-block: 1rem 3rem;
+}
+
+.home__profil{
+    justify-self: center;
+}
+
+.home__data{
+    row-gap: .75rem;
+    text-align: center;
+}
+
+.home__name{
+    font-size: var(--h1-f-size);
+}
+
+.home__profession{
+    font-size: var(--h2-f-size);
+}
+
+.home__social{
+    display: flex;
+    justify-content: center;
+    column-gap: 1rem;
+}
+
+.home__social-link{
+    font-size: 1.3rem;
+    color: var(--first-color);
+    transition: color .4s;
+}
+
+.home__social-link:hover{
+    color: var(--third-color);
+    transition: .4s;
+    transform: scale(1.5);
+}
+
+.home__button{
+    justify-self: center;     
+}
+
+
+/* @@@@@@@@@@ ABOUT @@@@@@@@@@ */
+.about__page{
+    padding-bottom: 4rem;
+}
+
+.about__profil{
+    justify-self: center;
+}
+
+.about__content{
+    row-gap: 4rem;
+}
+
+.about__data{
+    row-gap: 2rem;
+}
+
+.about__info{
+    text-align: center;
+    row-gap: .75rem;
+    line-height: 1.55rem;
+}
+
+.about__name{
+    font-size: var(--h1-f-size);
+}
+
+.about__profession{
+    font-size: var(--h2-f-size);
+}
+
+.about__description b{
+    color: var(--first-color);
+}
+/* @@@@@@@@@@ SERVICES @@@@@@@@@@ */
+
+
