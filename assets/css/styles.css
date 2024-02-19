@@ -105,8 +105,28 @@ img{
 }
 
 /* ====== THEME ====== */
+.nav__actions{
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.change-theme{
+    color: var(--support-color);
+    font-size: 1.3rem;
+    transition: color .4s;
+    cursor: pointer;
+}
 
 /* ====== DARK THEME ====== */ 
+body.dark-theme{
+    /* ====== Colors ====== */
+    --first-color: #222831;
+    --secondary-color: #393E46;
+    --third-color: #00ADB5;
+    --support-color: #EEEEEE;
+    --shadow-color: #a0a3a7;   
+}
 
 
 /*------------------------------------------------------------------------------*/
@@ -382,6 +402,9 @@ img{
     color: var(--first-color);
 }
 
+.about__button{
+    justify-self: center;
+}
 
 /* @@@@@@@@@@ SERVICES @@@@@@@@@@ */
 .services__container{
@@ -414,6 +437,7 @@ img{
 
 .services__button{
     cursor: pointer;
+    box-shadow: 0px 8px 23px -14px var(--first-color);
 }
 
 .services__modal{
@@ -430,7 +454,7 @@ img{
 }
 
 .services__modal-content{
-    max-height: 380px;
+    max-height: 420px;
     position: relative;
     background-color: var(--shadow-color);
     padding: 3.5rem 1.5rem;
@@ -466,8 +490,8 @@ img{
 
 .services__modal-close{
     position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
+    top: .5rem;
+    right: .4rem;
     font-size: 1.5rem;
     color: var(--third-color);
     cursor: pointer;
@@ -477,4 +501,290 @@ img{
 .active-modal{
     opacity: 1;
     visibility: visible;
+}
+
+/* @@@@@@@@@@ PORTFOLIO(work) @@@@@@@@@@ */
+.work__container{
+    row-gap: 2rem;
+}
+
+.work__link{
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.work__img{
+    filter: grayscale(1);
+    transition: filter .5s, transform .5s;    
+}
+
+.work__icon{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2.5rem;
+    color: var(--third-color);
+    transition: transform .4s;
+}
+
+.work__link:hover .work__img{
+    transform: scale(1.1);
+    filter: none;
+}
+
+.work__link:hover .work__icon{
+    transform: translate(.5rem, -.5rem) rotate(-45deg);
+}
+
+.work__title{
+    font-size: var(--h2-f-size);
+    margin-bottom: .25rem;
+}
+
+.work__page{
+    padding-bottom: 4rem;
+}
+
+/* @@@@@@@@@@ TESTIMONIAL @@@@@@@@@@ */
+.testimonial__container{
+    position: relative;
+}
+
+.testimonial__swiper{
+    padding-bottom: 2rem;
+}
+
+.testimonial__card{
+    background-color: var(--support-color);
+    padding: 2rem 1.25rem 2.5rem 1.25rem;
+    border-inline: 8px solid var(--first-color);
+    box-shadow: 0px 8px 23px -14px var(--shadow-color);
+    text-align: center;
+    transition: background-color .4s;
+}
+
+.testimonial__border{
+    width: 100px;
+    height: 100px;
+    border: 6px solid var(--first-color);
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+}
+
+.testimonial__img{
+    filter: grayscale(1);
+    transition: filter .4s;    
+}
+
+.testimonial__name{
+    font-size: var(--h2-f-size);
+    margin-bottom: .5rem;
+}
+
+.testimonial__card:hover .testimonial__img{
+    filter: none;
+}
+
+/* Swiper class */
+.swiper-pagination-bullets.swiper-pagination-horizontal{
+    bottom: -.25rem;
+}
+
+.swiper-pagination-bullet{
+    background-color: var(--first-color);
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active{
+    background-color: var(--third-color);
+}
+
+/* @@@@@@@@@@ CONTACT @@@@@@@@@@ */
+.contact__container{
+    padding-bottom: 4rem;
+}
+
+.contact__button{
+    justify-self: center;
+}
+
+.contact__page{
+    padding-block: 1rem 4rem;
+}
+
+.contact__form{
+    position: relative;
+}
+
+.contact__box{
+    position: relative;
+    width: 100%;
+    height: 58px;
+}
+
+.contact__input{
+    width: 100%;
+    height: 100%;
+    background-color: var(--support-color);
+    border: 3px solid var(--secondary-color);
+    padding: .5rem 1.5rem;
+    color: var(--secondary-color);
+    font-weight: var(--font-medium);
+    transition: border-color .4s, background-color .4s;
+}
+
+.contact__input:focus{
+    border-color: var(--third-color);
+}
+
+.contact__input.contact__input:-webkit-autofill{
+    transition: background-color 6000s, color 6000s;
+}
+
+.contact__label{
+    position: absolute;
+    top: -16px;
+    left: 16px;
+    font-size: var(--small-f-size);
+    font-weight: var(--font-medium);
+    color: var(--third-color);
+    background-color: var(--support-color);
+    padding: 8px;
+    transition: background-color .4s;
+}
+
+.contact__area{
+    height: 15rem;
+}
+
+.contact__area textarea{
+    resize: none;
+    padding-top: 1.5rem;
+}
+
+.contact__send{
+    padding-block: 1.25rem;
+    cursor: pointer;    
+}
+
+.contact__message{
+    position: absolute;
+    bottom: -2rem;
+    left: 0;
+    font-size: var(--small-f-size);
+    font-weight: var(--font-medium);
+    color: var(--third-color);  
+}
+
+/* @@@@@@@@@@ FOOTER @@@@@@@@@@ */
+.footer{
+    background-color: var(--first-color);
+}
+
+.footer__company-logo{
+    justify-self: center;
+}
+
+.footer__logo-dagart{
+    width: 50px;
+    height: auto;    
+}
+
+.footer__container{
+    padding-block: 4rem 2rem;
+    text-align: center;
+    row-gap: 3rem;
+}
+
+.footer__content a,
+.footer__copy{
+    color: var(--support-color);
+}
+
+.footer__logo{
+    font-size: var(--h1-f-size);
+    font-weight: var(--font-regular);
+    justify-self: center;
+}
+
+.footer__links,
+.footer__social{
+    display: flex;
+    justify-content: center;
+}
+
+.footer__links{
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer_link{
+    font-weight: var(--font-medium);
+}
+
+.footer__logo:hover,
+.footer__link:hover{
+    border-left: 6px solid var(--support-color);       
+}
+
+.footer__social{
+    column-gap: 1rem;
+}
+
+.footer__social-link{
+    font-size: 1.5rem;
+    transition: transform .4s;
+}
+
+.footer__social-link:hover{
+    transform: translateY(.25rem);
+}
+
+.footer__copy{
+    font-size: var(--smaller-f-size);
+    font-weight: var(--font-regular);
+    padding-bottom: 1rem;
+}
+
+/* @@@@@@@@@@ SCROLL BAR @@@@@@@@@@ */
+::-webkit-scrollbar{
+    width: .7rem;
+    background-color: var(--support-color);
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--third-color);    
+    
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: var(--first-color);
+}
+
+/* @@@@@@@@@@ SCROLL UP @@@@@@@@@@ */
+.scrollup{
+    position: fixed;
+    right: 1rem;
+    bottom: -50%;
+    background-color: var(--support-color);
+    color: var(--third-color);
+    box-shadow: 0px 0px 13px -4px var(--first-color);    
+    z-index: var(--z-tooltip);
+    padding: 8px;
+    display: inline-flex;
+    font-size: 1.5rem;
+    border-radius: 25%;
+    transition: bottom .4s, transform .4s, background-color .4s;
+}
+
+.scrollup:hover{
+    transform: translateY(-.45rem);
+}
+
+/* show scroll up */
+.show-scroll{
+    bottom: 1.5rem;
 }
