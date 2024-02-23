@@ -7,12 +7,15 @@
 :root{
     --header-height: 3.5rem;
 
-/* ====== Colors ====== */
-    --first-color: #222831;
-    --secondary-color: #393E46;
-    --third-color: #00ADB5;
-    --support-color: #EEEEEE;
-    --shadow-color: #a0a3a7;
+/* ====== Colors ====== */    
+    --main-color: #EEEEEE;
+    --second-color: #222831;
+    --third-color: #393E46;
+    --support-color: #00ADB5;   
+    --shadow-color: #1b1b1b;
+
+/* ====== Shadow box ====== */
+    --shadow-box:  0px 1px 10px -3px var(--shadow-color);
 
 /* ====== Font and typography ====== */
     /* font size - 1rem = 16px */
@@ -73,8 +76,8 @@ button{
 }
 
 body{
-    background-color: var(--support-color);
-    color: var(--first-color);
+    background-color: var(--main-color);
+    color: var(--second-color);
     transition: background-color .4s;
 }
 
@@ -86,7 +89,7 @@ textarea{
 }
 
 h1, h2, h3, h4{
-    color: var(--secondary-color);
+    color: var(--third-color);
     font-weight: var(--font-bold);
 }
 
@@ -112,7 +115,7 @@ img{
 }
 
 .change-theme{
-    color: var(--support-color);
+    color: var(--main-color);
     font-size: 1.3rem;
     transition: color .4s;
     cursor: pointer;
@@ -121,13 +124,33 @@ img{
 /* ====== DARK THEME ====== */ 
 body.dark-theme{
     /* ====== Colors ====== */
-    --first-color: #222831;
-    --secondary-color: #393E46;
-    --third-color: #00ADB5;
-    --support-color: #EEEEEE;
-    --shadow-color: #a0a3a7;   
+    --third-color: #3282B8;
+    --support-color: #BBE1FA;     
+    --second-color: #0F4C75;
+    --main-color: #1B262C;
+    --shadow-color: #0c141a;      
+}
+/* Dark theme / 
+parts of the web */ 
+.dark-theme .bg-header{
+    box-shadow: 1px 1px 4px var(--second-color);
 }
 
+.dark-theme .services__modal{
+    background-color: var(--main-color);
+}
+
+.dark-theme::-webkit-scrollbar{
+    background-color: #1B262C;
+}
+
+.dark-theme::-webkit-scrollbar-thumb{
+    background-color: #0F4C75;
+}
+
+.dark-theme::-webkit-scrollbar-thumb:hover{
+    background-color: #EEEEEE;
+}
 
 /*------------------------------------------------------------------------------*/
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@ REUSABLE CSS CLASSES @@@@@@@@@@@@@@@@@@@@@@@@@@  */
@@ -155,8 +178,8 @@ body.dark-theme{
 .profil{
    width: 250px;
    height: 250px;
-   background-color: var(--support-color);
-   border: 8px solid var(--support-color);   
+   background-color: var(--main-color);
+   border: 8px solid var(--main-color);   
    display: grid;
    place-items: center;
    transition: background-color .4s; 
@@ -197,7 +220,7 @@ body.dark-theme{
 }
 
 .nav__logo{
-    color: var(--support-color);
+    color: var(--main-color);
     font-weight: var(--font-medium);
     transition: color .4s;
 }
@@ -210,12 +233,12 @@ body.dark-theme{
 }
 
 .nav__toggle{
-    color: var(--support-color);
+    color: var(--main-color);
     transition: color .4s;
 }
 
 .nav__close{
-    color: var(--third-color);
+    color: var(--support-color);
 }
 
 /* ====== Navigation for mobile devices ====== */
@@ -224,7 +247,7 @@ body.dark-theme{
         position: fixed;
         top: -100%;
         left: 0;
-        background-color: var(--support-color);
+        background-color: var(--main-color);
         width: 100%;
         box-shadow: 0 4px 16px var(--shadow-color);
         padding-block: 5rem 4rem;
@@ -240,13 +263,13 @@ body.dark-theme{
 }
 
 .nav__link{
-    color: var(--first-color);
+    color: var(--second-color);
     font-weight: var(--font-medium);
     transition: color .4s;
 }
 
 .nav__link:hover{
-    color: var(--third-color);
+    color: var(--support-color);
 }
 
 .nav__close{
@@ -263,40 +286,41 @@ body.dark-theme{
 
 /* ====== Change background header ====== */
 .bg-header{
-    background-color: var(--support-color);
-    box-shadow: 1px 1px 4px var(--first-color);
+    background-color: var(--main-color);
+    box-shadow: 1px 1px 4px var(--second-color);
 }
 
-.bg-header :is(.nav__logo, .nav__toggle){
-    color: var(--first-color);
+.bg-header :is(.nav__logo, .nav__toggle, .change-theme){
+    color: var(--second-color);
 }
 
 
 
 /* ====== Header background of other pages ====== */
 .header-pages{
-    background-color: var(--support-color);    
+    background-color: var(--main-color);    
 }
 
-.header-pages :is(.nav__logo, .nav__toggle){
-    color: var(--first-color)
+.header-pages :is(.nav__logo, .nav__toggle, .change-theme){
+    color: var(--second-color)
 }
 
 /* @@@@@@@@@@ BTN @@@@@@@@@@ */
 .button{
    display: inline-flex;
    justify-content: center;
-   background-color: var(--secondary-color);
-   color: var(--support-color);
+   background-color: var(--third-color);
+   color: var(--main-color);
    font-weight: var(--font-bold);
    padding: 1rem 2rem;
    transition: background-color .4s, box-shadow .4s;
-   border-radius: .5rem 1rem;    
+   border-radius: .5rem 1rem;
+   box-shadow: 0px 2px 6px var(--shadow-color);   
 }
 
 .button:hover{
-    background-color: var(--third-color);
-    color: var(--first-color);
+    background-color: var(--support-color);
+    color: var(--second-color);
     box-shadow: 1px 4px 8px var(--shadow-color);
     font-weight: var(--font-bold);
 }
@@ -310,13 +334,13 @@ body.dark-theme{
 /* @@@@@@@@@@ HOME @@@@@@@@@@ */
 .home{
     position: relative;
-    border-bottom: 8px solid var(--first-color);
+    border-bottom: 8px solid var(--second-color);
 }
 
 .home__rectangle{
     width: 100%;
     height: 220px;
-    background-color: var(--first-color);
+    background-color: var(--second-color);
     position: absolute;
     top: 0;
     left: 0;
@@ -352,12 +376,12 @@ body.dark-theme{
 
 .home__social-link{
     font-size: 1.3rem;
-    color: var(--first-color);
+    color: var(--second-color);
     transition: color .4s;
 }
 
 .home__social-link:hover{
-    color: var(--third-color);
+    color: var(--support-color);
     transition: .4s;
     transform: scale(1.5);
 }
@@ -399,7 +423,7 @@ body.dark-theme{
 }
 
 .about__description b{
-    color: var(--first-color);
+    color: var(--second-color);
 }
 
 .about__button{
@@ -412,9 +436,9 @@ body.dark-theme{
 }
 
 .services__card{
-    background-color: var(--shadow-color);
+    background-color: var(--main-color);
     padding: 3.5rem 1.5rem;
-    box-shadow: 0px 8px 23px -14px var(--first-color);
+    box-shadow: 0px 8px 23px -14px var(--shadow-color);
     text-align: center;
     transition: background-color .4s;
 }
@@ -422,28 +446,30 @@ body.dark-theme{
 .services__icon{
     display: inline-block;
     font-size: 3rem;
-    color: var(--third-color);
+    color: var(--support-color);
     margin-bottom: 1.5rem;
 }
 
 .services__title{
     font-size: var(--h2-f-size);
     margin-bottom: 1rem;
+    color: var(--support-color);
 }
 
 .services__description{
     margin-bottom: 3rem;
+    color: var(--third-color);
 }
 
 .services__button{
     cursor: pointer;
-    box-shadow: 0px 8px 23px -14px var(--first-color);
+    box-shadow: 0px 2px 6px var(--shadow-color);
 }
 
 .services__modal{
     position: fixed;
     inset: 0;
-    background-color: var(--third-color);    
+    background-color: var(--support-color);    
     display: grid;
     place-items: center;
     padding: 2rem 1.5rem;
@@ -456,9 +482,9 @@ body.dark-theme{
 .services__modal-content{
     max-height: 420px;
     position: relative;
-    background-color: var(--shadow-color);
+    background-color: var(--third-color);
     padding: 3.5rem 1.5rem;
-    border-bottom: 8px solid var(--first-color);
+    border-bottom: 8px solid var(--second-color);
     overflow: auto;
 }
 
@@ -473,6 +499,7 @@ body.dark-theme{
 .services__modal-title{
     font-size: var(--h2-f-size);
     margin-bottom: 2.5rem;
+    color: var(--main-color);
 }
 
 .services__modal-list{
@@ -482,10 +509,11 @@ body.dark-theme{
 .services__modal-item{
     text-align: initial;
     list-style: square;
+    color: var(--main-color);    
 }
 
 .services__modal-item::marker{
-    color: var(--third-color);
+    color: var(--support-color);
 }
 
 .services__modal-close{
@@ -493,7 +521,7 @@ body.dark-theme{
     top: .5rem;
     right: .4rem;
     font-size: 1.5rem;
-    color: var(--third-color);
+    color: var(--support-color);
     cursor: pointer;
 }
 
@@ -525,7 +553,7 @@ body.dark-theme{
     top: 1rem;
     right: 1rem;
     font-size: 2.5rem;
-    color: var(--third-color);
+    color: var(--support-color);
     transition: transform .4s;
 }
 
@@ -557,9 +585,9 @@ body.dark-theme{
 }
 
 .testimonial__card{
-    background-color: var(--support-color);
+    background-color: var(--main-color);
     padding: 2rem 1.25rem 2.5rem 1.25rem;
-    border-inline: 8px solid var(--first-color);
+    border-inline: 8px solid var(--second-color);
     box-shadow: 0px 8px 23px -14px var(--shadow-color);
     text-align: center;
     transition: background-color .4s;
@@ -568,7 +596,7 @@ body.dark-theme{
 .testimonial__border{
     width: 100px;
     height: 100px;
-    border: 6px solid var(--first-color);
+    border: 6px solid var(--second-color);
     overflow: hidden;
     border-radius: 50%;
     margin: 0 auto 1rem;
@@ -594,12 +622,12 @@ body.dark-theme{
 }
 
 .swiper-pagination-bullet{
-    background-color: var(--first-color);
+    background-color: var(--second-color);
     opacity: 1;
 }
 
 .swiper-pagination-bullet-active{
-    background-color: var(--third-color);
+    background-color: var(--support-color);
 }
 
 /* @@@@@@@@@@ CONTACT @@@@@@@@@@ */
@@ -628,16 +656,16 @@ body.dark-theme{
 .contact__input{
     width: 100%;
     height: 100%;
-    background-color: var(--support-color);
-    border: 3px solid var(--secondary-color);
+    background-color: var(--main-color);
+    border: 3px solid var(--third-color);
     padding: .5rem 1.5rem;
-    color: var(--secondary-color);
+    color: var(--third-color);
     font-weight: var(--font-medium);
     transition: border-color .4s, background-color .4s;
 }
 
 .contact__input:focus{
-    border-color: var(--third-color);
+    border-color: var(--support-color);
 }
 
 .contact__input.contact__input:-webkit-autofill{
@@ -650,8 +678,8 @@ body.dark-theme{
     left: 16px;
     font-size: var(--small-f-size);
     font-weight: var(--font-medium);
-    color: var(--third-color);
-    background-color: var(--support-color);
+    color: var(--support-color);
+    background-color: var(--main-color);
     padding: 8px;
     transition: background-color .4s;
 }
@@ -676,12 +704,12 @@ body.dark-theme{
     left: 0;
     font-size: var(--small-f-size);
     font-weight: var(--font-medium);
-    color: var(--third-color);  
+    color: var(--support-color);  
 }
 
 /* @@@@@@@@@@ FOOTER @@@@@@@@@@ */
 .footer{
-    background-color: var(--first-color);
+    background-color: var(--second-color);
 }
 
 .footer__company-logo{
@@ -701,7 +729,7 @@ body.dark-theme{
 
 .footer__content a,
 .footer__copy{
-    color: var(--support-color);
+    color: var(--main-color);
 }
 
 .footer__logo{
@@ -727,7 +755,7 @@ body.dark-theme{
 
 .footer__logo:hover,
 .footer__link:hover{
-    border-left: 6px solid var(--support-color);       
+    border-left: 6px solid var(--main-color);       
 }
 
 .footer__social{
@@ -752,16 +780,16 @@ body.dark-theme{
 /* @@@@@@@@@@ SCROLL BAR @@@@@@@@@@ */
 ::-webkit-scrollbar{
     width: .7rem;
-    background-color: var(--support-color);
+    background-color: var(--main-color);
 }
 
 ::-webkit-scrollbar-thumb{
-    background-color: var(--third-color);    
+    background-color: var(--support-color);    
     
 }
 
 ::-webkit-scrollbar-thumb:hover{
-    background-color: var(--first-color);
+    background-color: var(--second-color);
 }
 
 /* @@@@@@@@@@ SCROLL UP @@@@@@@@@@ */
@@ -769,9 +797,9 @@ body.dark-theme{
     position: fixed;
     right: 1rem;
     bottom: -50%;
-    background-color: var(--support-color);
-    color: var(--third-color);
-    box-shadow: 0px 0px 13px -4px var(--first-color);    
+    background-color: var(--main-color);
+    color: var(--support-color);
+    box-shadow: 0px 0px 13px -4px var(--second-color);    
     z-index: var(--z-tooltip);
     padding: 8px;
     display: inline-flex;
